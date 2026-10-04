@@ -1,0 +1,49 @@
+# Your master resume as structured data. Edit this once with YOUR real content.
+# Tailoring edits a COPY of this (never the master) and re-renders the template.
+# Each bullet has a stable `id` so the tailor step can map its changes back.
+name: "Your Name"
+headline: "Strategy & Operations | Ex-Consulting"
+email: "you@example.com"
+phone: "+1 555 555 5555"
+location: "City, Country"
+links:
+  LinkedIn: "linkedin.com/in/you"
+  GitHub: "github.com/you"
+
+summary: >
+  One or two lines. Keep it factual. Tailoring will re-angle this toward each
+  role using only what is genuinely true about you.
+
+skills:
+  Analytical: ["Financial modeling", "Market sizing", "SQL", "Python"]
+  Domain: ["Corporate strategy", "GTM", "Operations"]
+  Tools: ["Excel", "Tableau", "PowerPoint"]
+
+experience:
+  - company: "Example Co"
+    title: "Strategy Analyst"
+    location: "City"
+    start: "2023"
+    end: "Present"
+    bullets:
+      - id: "exco-1"
+        text: "Built a 3-statement model that informed a $10M capital allocation decision."
+      - id: "exco-2"
+        text: "Led a market-sizing study across 4 segments, identifying $25M of new TAM."
+  - company: "Prior Corp"
+    title: "Business Analyst"
+    location: "City"
+    start: "2021"
+    end: "2023"
+    bullets:
+      - id: "prior-1"
+        text: "Automated a weekly reporting pipeline in Python, cutting analyst time 60%."
+
+education:
+  - school: "Your University"
+    degree: "B.A. in Economics"
+    location: "City"
+    start: "2017"
+    end: "2021"
+    details:
+      - "GPA / honors / relevant coursework (optional)."

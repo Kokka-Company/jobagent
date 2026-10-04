@@ -1,0 +1,42 @@
+# The ~40 questions every ATS repeats. Fill once; the filler reuses these.
+# Values feed deterministic field-matching in Module B.
+
+personal:
+  first_name: "Your"
+  last_name: "Name"
+  email: "you@example.com"
+  phone: "+1 555 555 5555"
+  address_line1: ""
+  city: ""
+  state: ""
+  postal_code: ""
+  country: "United States"
+  linkedin: "linkedin.com/in/you"
+  website: ""
+
+work_authorization:
+  authorized_to_work: true          # legally authorized in the target country?
+  requires_sponsorship: false       # now or in the future?
+  visa_status: ""                   # e.g. "Citizen", "Green Card", "H-1B"
+
+preferences:
+  salary_expectation: ""            # leave blank to skip / negotiate later
+  earliest_start_date: "Immediately"
+  willing_to_relocate: true
+  remote_preference: "Hybrid"       # Remote | Hybrid | Onsite
+  desired_locations: []
+
+eeo:                                 # US Equal Employment Opportunity (all optional / "decline")
+  gender: "Decline to self-identify"
+  race_ethnicity: "Decline to self-identify"
+  veteran_status: "Decline to self-identify"
+  disability_status: "Decline to self-identify"
+
+references:                          # optional; many forms ask "available on request"
+  available_on_request: true
+  list: []                          # [{name, title, company, email, phone}]
+
+# Free-text answers the filler can reuse verbatim or adapt per-company.
+common_essays:
+  why_this_company: ""              # leave blank -> generated per posting from the JD
+  why_this_role: ""

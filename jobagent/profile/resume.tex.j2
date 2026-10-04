@@ -1,0 +1,64 @@
+% ATS-friendly single-column resume template.
+% Rendered by jobagent.tailor.render with LaTeX-safe Jinja2 delimiters
+% (variables and blocks use paren-based markers; see render.py for the exact set).
+% Keep it single-column, standard fonts, standard section headings — this is
+% what applicant-tracking systems parse most reliably.
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{parskip}
+\pagestyle{empty}
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=1pt}
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\begin{document}
+
+% ----- Header -----
+\begin{center}
+    {\LARGE \textbf{(((name)))}}\\[2pt]
+    ((* if headline *))\textit{(((headline)))}\\[2pt]((* endif *))
+    (((contact_line)))
+\end{center}
+
+((* if summary *))
+\section{Summary}
+(((summary)))
+((* endif *))
+
+((* if skills *))
+\section{Skills}
+((* for category, items in skills.items() *))
+\textbf{(((category))):} (((items | join(', ')))) \\
+((* endfor *))
+((* endif *))
+
+\section{Experience}
+((* for role in experience *))
+\textbf{(((role.title)))} \hfill (((role.start))) -- (((role.end)))\\
+\textit{(((role.company)))((* if role.location *)), (((role.location)))((* endif *))}
+\begin{itemize}
+((* for b in role.bullets *))
+    \item (((b.text)))
+((* endfor *))
+\end{itemize}
+((* endfor *))
+
+((* if education *))
+\section{Education}
+((* for ed in education *))
+\textbf{(((ed.school)))} \hfill (((ed.start))) -- (((ed.end)))\\
+\textit{(((ed.degree)))((* if ed.location *)), (((ed.location)))((* endif *))}
+((* if ed.details *))
+\begin{itemize}
+((* for d in ed.details *))
+    \item (((d)))
+((* endfor *))
+\end{itemize}
+((* endif *))
+((* endfor *))
+((* endif *))
+
+\end{document}

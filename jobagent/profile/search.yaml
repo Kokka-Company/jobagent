@@ -1,0 +1,54 @@
+# What to look for. `jobagent scan` reads this; `jobagent evaluate`/`triage` use
+# `targets` and `hard_filters` to score fit. Edit freely — everything is optional.
+
+# Companies to watch. `ats` is greenhouse | lever | lever-eu | ashby, and `board` is
+# the slug in the company's job-board URL:
+#   job-boards.greenhouse.io/<board>   jobs.lever.co/<board>   jobs.ashbyhq.com/<board>
+companies:
+  - {name: Anthropic, ats: greenhouse, board: anthropic}
+  - {name: Stripe,    ats: greenhouse, board: stripe}
+  - {name: Figma,     ats: greenhouse, board: figma}
+  - {name: OpenAI,    ats: ashby,      board: openai}
+  - {name: Ramp,      ats: ashby,      board: ramp}
+  - {name: Palantir,  ats: lever,      board: palantir}
+
+# Title filter (whole-word, case-insensitive). A title must contain at least one
+# `include` term and no `exclude` term. Empty include = accept every title.
+titles:
+  include: [strategy, strategic, operations, bizops, "chief of staff",
+            "corporate development", "business development", "planning", "transformation"]
+  exclude: [intern, internship, engineer, engineering, "sales development", recruiter,
+            "account executive", designer, scientist]
+
+# Location filter. Empty allow = accept any location. Remote roles always pass
+# unless `remote_ok: false`. Missing locations pass (don't penalize missing data).
+locations:
+  allow: ["new york", "san francisco", "remote", "united states", "us"]
+  block: []
+  remote_ok: true
+
+max_posting_age_days: 45      # 0 = no limit; postings without a date always pass
+
+# Deterministic deal-breakers checked against the JD before any LLM call.
+hard_filters:
+  # Skip roles that state they can't sponsor, but only if you need sponsorship
+  # (taken from standard_answers.yaml -> work_authorization.requires_sponsorship).
+  sponsorship: auto
+  has_security_clearance: false # false -> skip roles requiring active TS/SCI/polygraph
+  years_experience: 4           # your total years; roles demanding > this + slack are skipped
+  years_slack: 2
+
+# The kinds of role you actually want, best first. The evaluator scores "North
+# Star" alignment against these; a role matching none of them scores low on it.
+targets:
+  - name: Corporate strategy / BizOps
+    signals: [strategy, "business operations", planning, "strategic finance", "operating cadence"]
+  - name: Chief of Staff
+    signals: ["chief of staff", "executive office", "special projects"]
+  - name: Corporate development
+    signals: ["corporate development", "m&a", partnerships, "business development"]
+
+# Minimums (optional). Used by the evaluator's comp dimension when a range is posted.
+compensation:
+  currency: USD
+  min_base: 0

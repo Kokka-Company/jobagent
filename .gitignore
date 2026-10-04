@@ -1,0 +1,20 @@
+# Secrets & local state
+.env
+data/jobagent.db
+data/generated/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+
+# Research scratch
+trees.txt
