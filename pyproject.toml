@@ -1,6 +1,8 @@
 [project]
 name = "jobagent"
 version = "0.1.0"
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE", "NOTICE"]
 description = "Tailor a master LaTeX resume to a job posting and (semi-)automate applications."
 requires-python = ">=3.10"
 dependencies = [
@@ -23,7 +25,7 @@ dev = ["pytest>=8.0"]
 jobagent = "jobagent.cli:app"
 
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]

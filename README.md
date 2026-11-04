@@ -134,3 +134,11 @@ automation (ToS / account-ban risk), and agents answering "Yes" to skills you do
 - **Module B (planned):** deterministic field adapters for the big ATSs (Greenhouse/Lever/Ashby)
   + an LLM agentic fallback for long-tail fields. `--dry-run` fills without submitting;
   auto-submit pauses and notifies you on captchas/anti-bot walls (a bot can't clear those).
+
+## License
+
+Copyright (C) 2026 Kokka & Company
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the [GNU General Public License](LICENSE) for more details.
